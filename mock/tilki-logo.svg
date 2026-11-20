@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512" role="img" aria-label="Tilki DB logo">
+  <title>Tilki DB</title>
+  <!-- geometric fox head; same-color round-join strokes soften the corners slightly -->
+  <g stroke-linejoin="round">
+    <path fill="#F26A21" stroke="#F26A21" stroke-width="3" d="M12 7 L26 19 H38 L52 7 L54 31 L32 56 L10 31 Z"/>
+    <path fill="#B94C17" stroke="#B94C17" stroke-width="1.5" d="M15 13 L23.5 20.5 L16 25 Z M49 13 L40.5 20.5 L48 25 Z"/>
+    <path fill="#DD5A18" stroke="#DD5A18" stroke-width="1" d="M26 19 L32 30 L38 19 Z"/>
+    <path fill="#FFF4EA" stroke="#FFF4EA" stroke-width="1.5" d="M11.5 32 L24 35 L32 44.5 V54.5 Z"/>
+    <path fill="#F1E1D1" stroke="#F1E1D1" stroke-width="1.5" d="M52.5 32 L40 35 L32 44.5 V54.5 Z"/>
+    <path fill="#22160F" stroke="#22160F" stroke-width="1.5" d="M19 27.5 L26 30 L20.5 31 Z M45 27.5 L38 30 L43.5 31 Z"/>
+    <path fill="#22160F" stroke="#22160F" stroke-width="1.5" d="M29.5 50 H34.5 L32 53.5 Z"/>
+  </g>
+</svg>

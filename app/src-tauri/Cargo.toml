@@ -1,0 +1,50 @@
+[package]
+name = "tilki-db"
+version = "0.4.1"
+description = "Tilki DB — fast desktop SQL client"
+authors = ["Ahmet Bilen <mail@bilenahmet.com>"]
+license-file = "../../LICENSE"
+homepage = "https://bilenahmet.com/tilkidb"
+repository = "https://github.com/blnahmt/tilkidb"
+publish = false
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "tilki_db_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] } # keep JSON keys in file / server order
+tauri-plugin-dialog = "2.8.4"
+keyring = { version = "3", features = ["windows-native", "sync-secret-service", "crypto-rust"] }
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio", "tls-rustls", "postgres", "mysql", "sqlite"] }
+russh = { version = "0.65", default-features = false, features = ["ring", "rsa", "flate2"] }
+tokio = { version = "1.54.1", features = ["net", "io-util", "time", "sync"] }
+futures-util = { version = "0.3.34", default-features = false, features = ["std"] }
+rust_xlsxwriter = { version = "0.102.0", features = ["constant_memory"] }
+csv = "1.4.0"
+# Claude API calls (optional AI). ring instead of aws-lc-rs: no CMake/NASM needed to build
+reqwest = { version = "0.13", default-features = false, features = ["rustls-no-provider", "stream", "http2"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+tauri-plugin-updater = "2"
+
+[dev-dependencies]
+rand = "0.10" # test-only: SSH keys for the tunnel tests are generated per run
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "unwind" # a bug in one command must not close the app (and lose unsaved edits); commands catch it
+strip = true

@@ -1,0 +1,51 @@
+/* Base tokens. Palette colors (desk…k) come from src/theme/themes.ts; the values
+   here are the Red Fox defaults so the first paint never flashes. */
+:root {
+  --desk: #0b0908; --bg: #13100e; --panel: #1a1613; --panel2: #221d19; --line: #332b25; --grid: #1f1a17;
+  --fg: #f3e9df; --muted: #9a8d81; --faint: #645a51;
+  --accent: #e8612a; --accent-fg: #1c0b02; --accent-soft: rgba(232, 97, 42, .15); --k: #f4c58e;
+  --dev: #3fbf7f; --stage: #e6b422; --prod: #ef4a4a; --ok: #3fbf7f;
+  /* syntax colors follow the palette: strings / numbers keep their hue, tinted toward the accent */
+  --s: color-mix(in oklab, #a6d189 78%, var(--accent)); --n: color-mix(in oklab, #7fb8ff 78%, var(--accent)); --t: color-mix(in oklab, var(--accent) 70%, var(--fg)); --c: var(--faint);
+  /* chart series: dataviz reference categorical slots 1-4, validated on the dark surface */
+  --ser1: #3987e5; --ser2: #d95926; --ser3: #199e70; --ser4: #c98500;
+  --shadow: rgba(0, 0, 0, .6);
+  --ui: "Poppins", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --s: color-mix(in oklab, #3d7f28 80%, var(--accent)); --n: color-mix(in oklab, #2160c4 80%, var(--accent)); --t: color-mix(in oklab, var(--accent) 75%, var(--fg)); --c: var(--faint); --shadow: rgba(60, 40, 20, .25);
+    --ser1: #2a78d6; --ser2: #eb6834; --ser3: #1baf7a; --ser4: #eda100;
+    --dev: #1e9a5c; --stage: #b58a00; --prod: #d62d2d; --ok: #1e9a5c;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --s: color-mix(in oklab, #3d7f28 80%, var(--accent)); --n: color-mix(in oklab, #2160c4 80%, var(--accent)); --t: color-mix(in oklab, var(--accent) 75%, var(--fg)); --c: var(--faint); --shadow: rgba(60, 40, 20, .25);
+  --ser1: #2a78d6; --ser2: #eb6834; --ser3: #1baf7a; --ser4: #eda100;
+    --dev: #1e9a5c; --stage: #b58a00; --prod: #d62d2d; --ok: #1e9a5c;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; border-radius: 0 !important; } /* Tilki DB look: sharp corners */
+[hidden] { display: none !important; }
+html, body, #root { height: 100%; }
+body { margin: 0; overflow: hidden; background: var(--bg); color: var(--fg); font: 13px/1.4 var(--ui); user-select: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+input, textarea { user-select: text; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+kbd { font: 500 10.5px var(--mono); padding: 1px 5px; border: 1px solid var(--line); color: var(--muted); background: var(--panel2); white-space: nowrap; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--panel); }
+::-webkit-scrollbar-thumb { background: var(--line); border: 2px solid var(--panel); }
+::-webkit-scrollbar-thumb:hover { background: var(--faint); }
+::-webkit-scrollbar-thumb:active { background: var(--accent); }
+::-webkit-scrollbar-corner { background: var(--panel); }
+::-webkit-scrollbar-button { display: none; }
+@supports not selector(::-webkit-scrollbar) { * { scrollbar-color: var(--line) var(--panel); } }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
