@@ -1,6 +1,6 @@
 # Tilki DB Individual Contributor License Agreement
 
-Thank you for contributing to Tilki DB. This agreement explains the rights you give when you submit a contribution. Read it before your first pull request. You accept it once, through the CLA Assistant link the bot leaves on the pull request, and it then covers all your later contributions.
+Thank you for contributing to Tilki DB. This agreement explains the rights you give when you submit a contribution. Read it before your first pull request. You accept it once, by posting the comment "I have read the CLA Document and I hereby sign the CLA" on your pull request when the bot asks. It then covers all your later contributions.
 
 "We" and "the maintainer" mean Ahmet Bilen, who maintains Tilki DB. "You" means the individual accepting this agreement.
 

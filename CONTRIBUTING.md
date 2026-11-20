@@ -4,7 +4,7 @@ Thanks for helping. Bug reports, ideas and pull requests are all welcome.
 
 ## Before you start
 
-- **Accept the [Contributor License Agreement](CLA.md).** On your first pull request a bot leaves a link; accepting once covers all your later contributions. It lets your change ship in the official builds. You keep the copyright in your work.
+- **Accept the [Contributor License Agreement](CLA.md).** On your first pull request a bot asks you to accept it with a one-line comment; accepting once covers all your later contributions. It lets your change ship in the official builds. You keep the copyright in your work.
 - **Know the [LICENSE](LICENSE).** The source is under the PolyForm Strict License 1.0.0, with an extra permission to change it for contributions. Keep your fork for contributing only; don't publish builds from it.
 - **Open an issue first for bigger changes.** A short description of what you want to build saves both of us time if the idea doesn't fit.
 - **Security issues go to [SECURITY.md](SECURITY.md)**, not to public issues.
